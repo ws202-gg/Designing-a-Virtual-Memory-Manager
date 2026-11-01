@@ -1,0 +1,65 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{CMU Typewriter Text}
+\usepackage[a4paper,left=2.2cm,right=2.2cm,top=2.2cm,bottom=2.4cm]{geometry}
+\usepackage{amssymb}
+\usepackage{pgfplots,subcaption,fancyvrb}
+\usepackage[most]{tcolorbox}
+\usetikzlibrary{decorations.pathreplacing,shapes.geometric}
+\usepackage{xcolor,graphicx,tabularx,booktabs,colortbl,longtable,array,enumitem,caption,titlesec,fancyhdr,listings,amsmath,tikz,float}
+\usetikzlibrary{positioning,arrows.meta}
+\usepackage[hidelinks]{hyperref}
+\definecolor{navy}{HTML}{1F3864}
+\definecolor{hblue}{HTML}{2E75B6}
+\definecolor{codebg}{HTML}{F6F7F9}
+\definecolor{fillc}{HTML}{C55A11}
+\definecolor{notebg}{HTML}{FFF8E1}
+\definecolor{grn}{HTML}{22A06B}\definecolor{rd}{HTML}{D9534F}\definecolor{yl}{HTML}{E0A100}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\sloppy
+\titleformat{\section}{\sffamily\Large\color{navy}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\sffamily\large\color{hblue}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\sffamily\normalsize\bfseries\color{navy}}{}{0em}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\captionsetup{font=small,labelfont=it,textfont=it,labelsep=period}
+\setlist{itemsep=1pt,topsep=2pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\hc}[1]{\textcolor{white}{\textbf{#1}}}
+\newcommand{\hdr}{\rowcolor{navy}}
+\newcommand{\fillin}[1]{\textcolor{fillc}{\textit{#1}}}
+\renewcommand{\arraystretch}{1.18}
+\lstset{basicstyle=\ttfamily\small,backgroundcolor=\color{codebg},frame=single,rulecolor=\color{black!25},
+  breaklines=true,columns=fullflexible,keepspaces=true,xleftmargin=4pt,xrightmargin=4pt,aboveskip=6pt,belowskip=6pt,
+  extendedchars=true,showstringspaces=false}
+\newcommand{\notebox}[1]{\par\noindent\colorbox{notebg}{\parbox{\dimexpr\linewidth-2\fboxsep}{\small #1}}\par}
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[R]{\small\thepage}
+\newcommand{\coverpage}[1]{%
+\begin{titlepage}\centering
+{\large\textsc{Шинжлэх Ухаан Технологийн Их Сургууль}\par}\vspace{2pt}
+{\textsc{Мэдээлэл, Холбооны Технологийн Сургууль}\par}
+\vspace{1cm}\includegraphics[height=3.6cm]{logo.png}\par\vspace{1.8cm}
+{\large F.CSM302\quad Үйлдлийн систем\par}
+\vspace{2.2cm}{\Large Бие даалт №1\par}\vspace{8pt}{\LARGE\textbf{#1}\par}\vspace{6pt}{\color{hblue}\rule{0.55\linewidth}{0.8pt}}\par
+\vspace{0.2cm}{\normalsize Хуваарилалтын код: II-4-15\par}
+\vspace{2.6cm}
+\begin{tabular}{@{}p{5.6cm}l@{}}
+\textit{Шалгасан багш:} & Г.Ганбат /F.CS10/\\[2pt]
+\textit{Гүйцэтгэсэн оюутан:} & Э.Мөнх-Оргил /B242270130/\\
+ & Д.Ундармаа /B242270044/\\
+ & В.Хүсэлбилэг /B241910007/\\
+ & С.Сүхбат /B241940044/\\
+ & М.Хатансайхан /B231940049/\\
+\end{tabular}
+\vfill
+Улаанбаатар хот\par 2026 он
+\end{titlepage}}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\figurename}{Зураг}\renewcommand{\tablename}{Хүснэгт}
+\renewcommand{\contentsname}{Агуулга}
+\graphicspath{{../img/}}
+\newenvironment{term}{\VerbatimEnvironment\begin{tcolorbox}[colback=codebg,colframe=black!25,boxrule=0.4pt,arc=0pt,left=3pt,right=3pt,top=2pt,bottom=2pt]\begin{Verbatim}[fontsize=\footnotesize]}{\end{Verbatim}\end{tcolorbox}}

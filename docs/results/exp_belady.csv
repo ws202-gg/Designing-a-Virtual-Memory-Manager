@@ -1,0 +1,13 @@
+frames,policy,faults
+1,FIFO,12
+1,LRU,12
+2,FIFO,12
+2,LRU,12
+3,FIFO,9
+3,LRU,10
+4,FIFO,10
+4,LRU,8
+5,FIFO,5
+5,LRU,5
+6,FIFO,5
+6,LRU,5

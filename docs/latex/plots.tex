@@ -1,0 +1,27 @@
+\newcommand{\plotLocality}[1][0.48\linewidth]{%
+\begin{tikzpicture}\begin{axis}[width=#1, height=0.62*#1, xmode=log, log basis x=2, xtick={8,16,32,64,128,256}, xticklabels={8,16,32,64,128,256},
+ title={Locality өгөгдөл (1000 хаяг)}, xlabel={Frame-ийн тоо}, ylabel={Page fault rate, \%}, ymin=10,ymax=52]
+\addplot[fifo] coordinates {(8,47.8) (16,27.7) (32,21.4) (64,19.3) (128,16.6) (256,16.1)}; \addlegendentry{FIFO}
+\addplot[lru] coordinates {(8,44.5) (16,22.6) (32,21.0) (64,19.2) (128,16.6) (256,16.1)}; \addlegendentry{LRU}
+\end{axis}\end{tikzpicture}}
+\newcommand{\plotBook}[1][0.48\linewidth]{%
+\begin{tikzpicture}\begin{axis}[width=#1, height=0.62*#1, xmode=log, log basis x=2, xtick={8,16,32,64,128,256}, xticklabels={8,16,32,64,128,256},
+ title={Номын addresses.txt (1000 хаяг)}, xlabel={Frame-ийн тоо}, ylabel={Page fault rate, \%}, ymin=20,ymax=100]
+\addplot[fifo] coordinates {(8,97.5) (16,94.6) (32,88.2) (64,76.2) (128,53.8) (256,24.4)}; \addlegendentry{FIFO}
+\addplot[lru] coordinates {(8,97.5) (16,94.5) (32,87.9) (64,75.4) (128,53.9) (256,24.4)}; \addlegendentry{LRU}
+\node[font=\scriptsize, navy, anchor=north east, align=right] at (axis cs:256,40) {256 frame: 244 fault\\= ялгаатай page-ийн тоо};
+\end{axis}\end{tikzpicture}}
+\newcommand{\plotTLB}[1][0.48\linewidth]{%
+\begin{tikzpicture}\begin{axis}[width=#1, height=0.62*#1, xmode=log, log basis x=2, xtick={1,2,4,8,16,32,64}, xticklabels={1,2,4,8,16,32,64},
+ title={TLB hit rate (locality, 256 frame)}, xlabel={TLB-ийн хэмжээ}, ylabel={TLB hit rate, \%}, ymin=0,ymax=90,legend pos=south east]
+\addplot[fifo] coordinates {(1,9.8) (2,18.5) (4,31.9) (8,52.2) (16,72.3) (32,78.6) (64,80.7)}; \addlegendentry{FIFO}
+\addplot[lru] coordinates {(1,9.8) (2,18.2) (4,33.2) (8,55.5) (16,77.4) (32,79.0) (64,80.8)}; \addlegendentry{LRU}
+\end{axis}\end{tikzpicture}}
+\newcommand{\plotBelady}[1][0.48\linewidth]{%
+\begin{tikzpicture}\begin{axis}[width=#1, height=0.62*#1, xtick={1,2,3,4,5,6}, xticklabels={1,2,3,4,5,6},
+ title={Belady: 1 2 3 4 1 2 5 1 2 3 4 5}, xlabel={Frame-ийн тоо}, ylabel={Page fault}, ymin=0,ymax=13,legend pos=south west]
+\addplot[fifo] coordinates {(1,12) (2,12) (3,9) (4,10) (5,5) (6,5)}; \addlegendentry{FIFO}
+\addplot[lru] coordinates {(1,12) (2,12) (3,10) (4,8) (5,5) (6,5)}; \addlegendentry{LRU}
+\draw[navy, line width=0.6pt] (axis cs:4,10) circle (5pt);
+\node[font=\scriptsize, navy, anchor=south west, align=left] at (axis cs:4.15,10.4) {FIFO: 3→4 frame үед\\fault 9→10 өссөн};
+\end{axis}\end{tikzpicture}}
